@@ -1,0 +1,53 @@
+<div class="coin-metrics">
+  <h1>Current prices</h1>
+
+  <div class="cards" *ngIf="cours">
+    <mat-spinner *ngIf="isLoadingCour"></mat-spinner>
+    <ng-container *ngIf="!isLoadingCour">
+      <ng-container *ngFor="let crypto of cours">
+        <mat-card *ngIf="crypto.name === 'Bitcoin' || crypto.name === 'Ethereum' || crypto.name === 'Dogecoin'">
+          <mat-card-header>
+            <mat-card-title class="cards-title">
+              <img
+                alt="{{crypto.name}}"
+                src="assets/image/{{crypto.name.toLowerCase()}}.png"
+                height="50"
+                width="50"
+              />
+              {{ crypto.name }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h2 class="price">Current price : {{ crypto.priceUsd | number:'1.2-2'}} $</h2>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div *ngIf="(!cours || cours.length === 0) && !isLoadingCour">
+    <mat-card class="no-data-card">
+      <mat-card-content>
+        <p>No data</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <h1>Best exchange platform</h1>
+
+  <div *ngIf="exchange" class="exchange-platform-card">
+    <mat-spinner *ngIf="isLoadingExchange"></mat-spinner>
+
+    <ng-container *ngIf="!isLoadingExchange">
+      <mat-card>
+        <mat-card-content>
+          <div class="best-exchange-platform">
+            <h2>{{ exchange[0].name}}</h2>
+            <h3>is the top cryptocurrency exchange platform in terms of trading volume over the last 24 hours.</h3>
+          </div>
+          <h3>Plateform link : <a href="{{exchange[0].exchangeUrl}}" target="_blank">{{exchange[0].exchangeUrl}}</a></h3>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>

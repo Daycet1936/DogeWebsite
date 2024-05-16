@@ -1,0 +1,15 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.welcome {
+  margin-top: 50px;
+  h1 {
+    color: darkgreen;
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

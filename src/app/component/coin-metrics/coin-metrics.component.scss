@@ -1,0 +1,42 @@
+.coin-metrics {
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    width: 65%;
+    margin-bottom: 75px;
+
+    mat-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 300px;
+      height: 175px;
+
+      .cards-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  .exchange-platform-card {
+    .best-exchange-platform {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      h2 {
+        margin: 0 5px 0 0 !important;
+      }
+    }
+  }
+}
+
+

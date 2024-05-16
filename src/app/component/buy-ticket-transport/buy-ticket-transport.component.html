@@ -1,0 +1,55 @@
+<div class="buy-ticket">
+  <h1>Ticketing</h1>
+
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+  <ng-container *ngIf="!isLoading">
+    <div class="ticket-informations">
+      <mat-card class="ticket-price">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>confirmation_number</mat-icon>
+            <h2>Price</h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>For one ticket : {{ticketPrice}}$ == {{(ticketPrice / conversion) | number:'1.2-2'}} Dogecoins</h3>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="ticket-discount">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>celebration</mat-icon>
+            <h2>Incredible promotion</h2>
+            <mat-icon>celebration</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>5% discount for purchases of 2 tickets or more !</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <mat-card>
+      <mat-card-content>
+        <div class="input-ticket-area">
+          <h3>Please select the number of tickets you wish to purchase : </h3>
+          <input matInput type="number" [(ngModel)]="numberTickets">
+        </div>
+
+        <div class="cart">
+          <mat-icon>shopping_cart</mat-icon>
+          <ng-container *ngIf="numberTickets > 0">
+            <h3>Your cart contains {{numberTickets}} {{numberTickets > 1 ? "tickets" : "ticket"}}</h3>
+            <button mat-raised-button color="primary" (click)="buyTickets()">Buy</button>
+          </ng-container>
+          <ng-container *ngIf="numberTickets == 0">
+            <h3>Your cart is empty</h3>
+          </ng-container>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</div>
+
+<!--<h2>Vous avez acheté {{numberTickets}} ticket(s) pour un prix total de {{this.prixTotal}} $ soit {{ this.prixDoge | number:'1.2-2'}} DogeCoin</h2>-->

@@ -1,0 +1,18 @@
+.header-button {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  color: lightcyan !important;
+}
+
+.header-button:hover {
+  color: lightgray !important;
+}
+
+.menu-button {
+  display: flex;
+
+  a {
+    margin: 0 15px 0 15px;
+  }
+}
